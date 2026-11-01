@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">狂人日记</string>
+    <string name="widget_panel_label">狂人日记 · 面板</string>
+    <string name="widget_quota_label">狂人日记 · 额度</string>
+    <string name="widget_level_label">狂人日记 · 等级</string>
+    <string name="widget_line_label">狂人日记 · 一句话</string>
+    <string name="widget_full_label">狂人日记 · 完整</string>
+    <string name="widget_panel_desc">等级、距考研天数、娱乐额度与今日任务</string>
+    <string name="widget_quota_desc">剩余娱乐额度分钟数与使用状态</string>
+    <string name="widget_level_desc">当前等级与经验</string>
+    <string name="widget_line_desc">一句话：距考研、今日额度与任务数</string>
+    <string name="widget_full_desc">完整面板：等级、五维、额度与今日任务</string>
+</resources>

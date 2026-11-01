@@ -1,0 +1,30 @@
+name: kuangren-diary
+version: 1.0.0
+description: "狂人日记（学习自律系统）Hermes 插件：查面板/任务/额度、建任务/完成任务、写日记点评、记体重、设每日策略、批额度申请、写早晚报。额度是动态的——先查面板再决定；三条硬底线由后端强制，任何工具都碰不了。"
+author: "kuangren-diary"
+kind: standalone
+platforms:
+  - linux
+  - windows
+  - macos
+requires_env:
+  - name: KUANGREN_API_URL
+    description: "狂人日记后端基址，例如 http://159.75.236.90/kuangren-api（不用带 /api/v1）"
+    prompt: "狂人日记 API 基址"
+  - name: KUANGREN_TOKEN
+    description: "后端 Bearer Token（与服务端 .env 里的 KUANGREN_TOKEN 一致）"
+    password: true
+    prompt: "狂人日记 API Token"
+provides_tools:
+  - get_panel
+  - list_tasks
+  - create_task
+  - complete_task
+  - log_weight
+  - write_diary_comment
+  - set_daily_policy
+  - grant_quota
+  - get_stats
+  - list_pending_requests
+  - decide_request
+  - write_report

@@ -1,0 +1,11 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+data/
+tests/
+*.db
+*.log
+.env
+.gitignore
+Dockerfile

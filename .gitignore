@@ -1,0 +1,50 @@
+# secrets / local
+.secrets/
+local.properties
+android/local.properties
+android/keystore.properties
+android/keystore/
+pc/config.local.json
+*.keystore
+*.jks
+*.apk
+*.zip
+server.env
+.env
+
+# 构建产物 / 临时目录
+dist/
+pc/dist/
+android/_shots/
+android/_mock/
+android/_stage/
+android/.kotlin/
+.tmp*/
+backend/.tmp-backend-test/
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/captures/
+android/.idea/
+android/local.properties
+*.iml
+.gradle/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.db
+*.sqlite3
+*.log
+
+# site: 线上 WordPress 主题是个人站点内容，只保留说明
+site/theme/
+
+# misc
+node_modules/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,53 @@
+{
+  "api_base": "http://159.75.236.90/kuangren-api",
+  "token": "REPLACE_ME_WITH_KUANGREN_TOKEN",
+  "device_id": "pc-main",
+  "device_name": "",
+  "app_version": "1.0.0",
+  "heartbeat_seconds": 15,
+  "enforcement_check_seconds": 5,
+  "usage_report_seconds": 60,
+  "http_timeout_seconds": 10,
+  "log_dir": "",
+  "blacklist": [
+    "steam.exe",
+    "steamwebhelper.exe",
+    "WeGame.exe",
+    "wegame.exe",
+    "valorant.exe",
+    "VALORANT-Win64-Shipping.exe",
+    "deadlock.exe",
+    "Deadlock.exe",
+    "MinecraftLauncher.exe",
+    "Minecraft.Windows.exe",
+    "bilibili.exe",
+    "哔哩哔哩.exe",
+    "douyin.exe",
+    "抖音.exe",
+    "qqlive.exe",
+    "TencentVideo.exe",
+    "iqiyi.exe",
+    "youku.exe"
+  ],
+  "enforcement": {
+    "block_network": true,
+    "kill_process": true,
+    "lock_workstation": true,
+    "lock_on_violations": 3,
+    "unblock_when_allowed": true
+  },
+  "tray": {
+    "show_balloon": true,
+    "start_minimized": true
+  },
+  "requests": {
+    "min_minutes": 5,
+    "max_minutes": 120
+  },
+  "log": {
+    "max_size_mb": 5,
+    "max_files": 2,
+    "level": "info"
+  },
+  "dry_run": false
+}

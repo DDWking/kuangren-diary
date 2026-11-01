@@ -1,0 +1,21 @@
+services:
+  kuangren-api:
+    build:
+      context: /srv/kuangren/backend
+      dockerfile: Dockerfile
+    image: kuangren-api:local
+    container_name: kuangren-api
+    restart: unless-stopped
+    environment:
+      KUANGREN_TOKEN: ${KUANGREN_TOKEN:?set KUANGREN_TOKEN in .env}
+      KUANGREN_DATA_DIR: /data
+      TZ: Asia/Shanghai
+    volumes:
+      - /srv/kuangren/data:/data
+    networks:
+      - site
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

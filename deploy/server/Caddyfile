@@ -1,0 +1,70 @@
+ddwtech.online, www.ddwtech.online {
+    encode zstd gzip
+
+    header {
+        -Server
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        X-Frame-Options "SAMEORIGIN"
+    }
+
+    @images path_regexp images \.(?:avif|webp|jpe?g|png|gif)$
+    header @images Cache-Control "public, max-age=31536000, immutable"
+
+    @apk path /deaddata/*.apk
+    header @apk Content-Type "application/vnd.android.package-archive"
+    header @apk Content-Disposition "attachment"
+    header @apk Cache-Control "public, max-age=31536000, immutable"
+
+    @manifest path /deaddata/update.json
+    header @manifest Content-Type "application/json; charset=utf-8"
+    header @manifest Cache-Control "no-cache, no-store, must-revalidate"
+
+    handle_path /deaddata/* {
+        root * /srv/deaddata
+        file_server
+    }
+
+    handle_path /kuangren-api/* {
+        reverse_proxy kuangren-api:8090
+    }
+
+    handle {
+        reverse_proxy wordpress:80
+    }
+}
+
+:80 {
+    encode zstd gzip
+
+    header {
+        -Server
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        X-Frame-Options "SAMEORIGIN"
+    }
+
+    # 裸 IP 访问时也给 APK / 更新清单：域名在那台机器上被重置，
+    # 下载页是走 http://159.75.236.90/downloads/ 打开的，链接必须能在裸 IP 上落地。
+    @apk path /deaddata/*.apk
+    header @apk Content-Type "application/vnd.android.package-archive"
+    header @apk Content-Disposition "attachment"
+    header @apk Cache-Control "public, max-age=31536000, immutable"
+
+    @manifest path /deaddata/*.json
+    header @manifest Content-Type "application/json; charset=utf-8"
+    header @manifest Cache-Control "no-cache, no-store, must-revalidate"
+
+    handle_path /deaddata/* {
+        root * /srv/deaddata
+        file_server
+    }
+
+    handle_path /kuangren-api/* {
+        reverse_proxy kuangren-api:8090
+    }
+
+    handle {
+        reverse_proxy wordpress:80
+    }
+}
